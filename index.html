@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نظام إجازات المرضى</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+  <div class="user-bar">
+    مرحباً، <span id="userName"></span>
+    <button class="btn-logout" onclick="logout()">تسجيل الخروج</button>
+  </div>
+
+  <div class="container">
+    <h1>إدخال بيانات إجازة مرضية</h1>
+    
+    <form id="dataEntryForm">
+      <div class="form-group">
+        <input class="form-control" type="text" id="serviceCode" placeholder="كود الخدمة" required>
+      </div>
+      
+      <div class="form-group">
+        <input class="form-control" type="text" id="patientId" placeholder="رقم الهوية/الإقامة" required>
+      </div>
+      
+      <div class="form-group">
+        <input class="form-control" type="text" id="patientName" placeholder="اسم المريض" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="sickLeaveDate">تاريخ إصدار التقرير:</label>
+        <input class="form-control" type="date" id="sickLeaveDate" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="fromDate">تاريخ بداية الإجازة:</label>
+        <input class="form-control" type="date" id="fromDate" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="toDate">تاريخ نهاية الإجازة:</label>
+        <input class="form-control" type="date" id="toDate" required>
+      </div>
+      
+      <div class="form-group">
+        <input class="form-control" type="number" id="duration" placeholder="مدة الإجازة (أيام)" required>
+      </div>
+      
+      <div class="form-group">
+        <input class="form-control" type="text" id="doctorName" placeholder="اسم الطبيب" required>
+      </div>
+      
+      <div class="form-group">
+        <input class="form-control" type="text" id="jobTitle" placeholder="المسمى الوظيفي" required>
+      </div>
+      
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">حفظ البيانات</button>
+        <a href="query.html" class="btn-query">عرض السجلات</a>
+      </div>
+    </form>
+    
+    <div id="message" class="message"></div>
+  </div>
+
+  <script src="entry.js"></script>
+  <script>
+    protectPage();
+    document.getElementById('userName').textContent = 
+      localStorage.getItem('userName') || 'مستخدم';
+      
+    // تعيين التاريخ الحالي كافتراضي
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('sickLeaveDate').value = today;
+  </script>
+</body>
+          </html>
