@@ -20,16 +20,16 @@
   <div class="container">
     <h1>استعلام عن الإجازات المرضية</h1>
     
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-6">
+    <div class="row justify-content-center mt-1">
+      <div class="col-md-5 p-4">
         <div class="form-group">
           <input class="form-control" type="text" maxlength="14" placeholder="رمز الخدمة" id="normalizedservicecode">
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" maxlength="12" placeholder="رقم الهوية / الإقامة" id="patientid">
+          <input class="form-control" type="text" maxlength="12" pattern="d*" placeholder="رقم الهوية / الإقامة" id="patientid">
         </div>
         
-        <div class="results-inquiery row mt-4" id="resultsDiv" style="display: none;">
+        <div class="results-inquiery row" id="resultsDiv" style="display: none;">
           <div class="col-md-6">
             <span>الاسم:</span>
             <h6 id="patientname"></h6>
@@ -60,18 +60,16 @@
           </div>
         </div>
         
-        <div class="alert alert-danger mt-3" id="alerterror" style="display: none;">يجب إدخال رمز الخدمة ورقم الهوية معاً</div>
-        <div class="alert alert-danger mt-3" id="alerterror2" style="display: none;">لا توجد نتائج مطابقة</div>
+        <div class="alert alert-danger mt-2" id="alerterror" style="display: none;">يجب إدخال رمز الخدمة ورقم الهوية معاً</div>
+        <div class="alert alert-danger mt-2" id="alerterror2" style="display: none;">لا توجد نتائج مطابقة</div>
         
-        <button class="btn btn-primary mt-3 w-100" id="submit">استعلام</button>
-        <button class="btn btn-primary mt-3 w-100" id="toggleButton" style="display: none;">استعلام جديد</button>
+        <button class="btn btn-primary mt-3" id="submit">استعلام</button>
+        <button class="btn btn-primary mt-3" id="toggleButton" style="display: none;">استعلام جديد</button>
       </div>
     </div>
     
-    <div class="row mt-4">
-      <div class="col-md-12 text-center">
-        <a class="btn btn-secondary" href="index.html">رجوع للصفحة الرئيسية</a>
-      </div>
+    <div class="col-md-12 text-center">
+      <a class="btn btn-primary mb-3" href="index.html">رجوع للاستعلامات</a>
     </div>
   </div>
 
@@ -82,4 +80,4 @@
       localStorage.getItem('userName') || 'مستخدم';
   </script>
 </body>
-</html>
+              </html>
